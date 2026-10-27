@@ -1,0 +1,26 @@
+# Chapter 5: Eigenvalues, Eigenvectors and Diagonalization
+Course: Mathematics for Computer Science (MATH-202)
+Department of Mathematics
+
+## Section 5.1: Definitions and Characteristic Equation
+Let A be an n \times n square matrix over the field of real or complex numbers.
+A non-zero vector v \in \mathbb{R}^n is called an eigenvector of A corresponding to eigenvalue \lambda \in \mathbb{R} if:
+A v = \lambda v
+
+Equivalently:
+(A - \lambda I) v = 0
+
+Since v \ne 0, the matrix (A - \lambda I) must be singular (non-invertible). Therefore, \lambda must satisfy the characteristic equation:
+\det(A - \lambda I) = 0
+
+## Section 5.2: Algebraic vs Geometric Multiplicity
+- The algebraic multiplicity of an eigenvalue \lambda_i is its multiplicity as a root of the characteristic polynomial p(\lambda) = \det(A - \lambda I).
+- The geometric multiplicity of \lambda_i is the dimension of its eigenspace E_{\lambda_i} = \ker(A - \lambda_i I), representing the number of linearly independent eigenvectors associated with \lambda_i.
+- Theorem: For any eigenvalue \lambda_i, 1 \le \text{geom. mult}(\lambda_i) \le \text{alg. mult}(\lambda_i).
+
+## Section 5.3: Diagonalization Theorem
+An n \times n matrix A is diagonalizable if and only if A has n linearly independent eigenvectors.
+In such case:
+A = P D P^{-1}
+where D is a diagonal matrix containing the eigenvalues along its main diagonal, and P is the matrix whose columns are the corresponding linearly independent eigenvectors.
+Application in CS: Fast computation of matrix powers A^k = P D^k P^{-1}, Markov chains, Google PageRank algorithm, and Principal Component Analysis (PCA).

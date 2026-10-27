@@ -1,0 +1,69 @@
+{
+  "name": "studylens",
+  "version": "1.0.0",
+  "description": "StudyLens - AI-Powered Bachelor's Study Assistant",
+  "main": "dist-electron/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node -e \"const fs=require('fs'); fs.cpSync('dist', 'dist-electron/renderer', {recursive: true, force: true});\"",
+    "start": "electron .",
+    "package:dir": "electron-builder --dir",
+    "package:win": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.studylens.assistant",
+    "productName": "StudyLens",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "sample-materials/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "@types/jszip": "^3.4.0",
+    "clsx": "^2.1.1",
+    "jszip": "^3.10.2",
+    "katex": "^0.16.11",
+    "lucide-react": "^1.16.0",
+    "mammoth": "^1.8.0",
+    "pdf-parse": "^1.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "tailwind-merge": "^2.5.4"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/node": "^22.7.5",
+    "@types/pdf-parse": "^1.1.4",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "electron": "^32.1.2",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.8",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  }
+}
